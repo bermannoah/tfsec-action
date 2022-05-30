@@ -4,7 +4,7 @@ set -xe
 
 TFSEC_VERSION="latest"
 if [ "$INPUT_VERSION" != "latest" ]; then
-  TFSEC_VERSION="tags/${INPUT_VERSION}"
+  TFSEC_VERSION="tag/${INPUT_VERSION}"
 fi
 
 wget -O - -q "$(wget -q https://api.github.com/repos/aquasecurity/tfsec/releases/${TFSEC_VERSION} -O - | grep -o -E "https://.+?tfsec-linux-amd64" | head -n1)" > tfsec
